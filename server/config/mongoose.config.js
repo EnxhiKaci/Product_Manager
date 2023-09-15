@@ -1,11 +1,14 @@
 const mongoose = require("mongoose");
 
+
+const dbURL = process.env.MONGODB_URI || "mongodb://localhost:27017/products";
+
 mongoose
-  .connect("mongodb://127.0.0.1:27017/products", {
+  .connect(dbURL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
   .then(() => console.log("Established a connection to the database"))
   .catch((err) =>
-    console.log("Something went wrong when connecting to the database", err)
+    console.error("Something went wrong when connecting to the database", err)
   );

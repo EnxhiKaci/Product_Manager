@@ -1,10 +1,8 @@
 import React from "react";
-import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from "./views/Main";
 import Detail from "./components/Detail";
-import ProductUpdate from "./components/ProductUpdate "; 
-
+import ProductUpdate from './components/ProductUpdate '
 
 
 const App = () => {
@@ -12,12 +10,14 @@ const App = () => {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route element={<Main />} path="/products" default />
+          <Route element={<Main />} path="/" />
+          <Route element={<Main />} path="/products" />
           <Route element={<Detail />} path="/products/:id" />
-          <Route element={<ProductUpdate />} path="/products/edit/:id" />
+          <Route element={<ProductUpdate />} path="http://localhost:8000/api/products/${id}" />
         </Routes>
       </BrowserRouter>
     </div>
   );
 };
+
 export default App;

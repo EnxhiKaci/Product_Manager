@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 const ProductForm = (props) => {
   const { updated, setUpdated } = props;
   const [title, setTitle] = useState("");
-  const [price, setPrice] = useState();
+  const [price, setPrice] = useState(""); 
   const [description, setDescription] = useState("");
 
   const onSubmitHandler = (e) => {
@@ -33,7 +32,7 @@ const ProductForm = (props) => {
         <input type="text" onChange={(e) => setTitle(e.target.value)} />
       </p>
       <p>
-        <label>Age</label>
+        <label>Price</label> {/* Changed label to "Price" */}
         <br />
         <input type="number" onChange={(e) => setPrice(e.target.value)} />
       </p>
@@ -46,4 +45,5 @@ const ProductForm = (props) => {
     </form>
   );
 };
+
 export default ProductForm;
